@@ -50,14 +50,14 @@ jobs:
       - name: Upload Maven build artifact
         uses: actions/upload-artifact@v1
         with:
-          name: review-service-artifact.jar
+          name: garden_center-service-artifact.jar
           path: ./target/garden_center-service-0.0.1-SNAPSHOT.jar
 
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/review-service-ex:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/garden_center-service:latest .
 
       - name: Upload container to Docker Hub with Push
-        run: docker push ${{ secrets.DOCKER_USER }}/review-service-ex:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/garden_center-service:latest
