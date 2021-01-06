@@ -12,4 +12,5 @@ public interface GardenCenterRepository extends MongoRepository<GardenCenter, St
     GardenCenter findGardenCenterByName(String name);
     List<GardenCenter> getAllBy();
     List<GardenCenter> findAllByAdresLike(String adres);
+    List<GardenCenter> findAllByNameLike(String name);
 }
