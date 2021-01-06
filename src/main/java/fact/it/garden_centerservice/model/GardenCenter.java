@@ -14,8 +14,7 @@ public class GardenCenter {
     public GardenCenter() {
     }
 
-    public GardenCenter(String id, String name, String adres) {
-        this.id = id;
+    public GardenCenter(String name, String adres) {
         this.name = name;
         this.adres = adres;
     }
