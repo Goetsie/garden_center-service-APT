@@ -70,7 +70,7 @@ spec:
         app: garden-center-service-server
     spec:                     # Spec for the containers that will be run in the Pods
       containers:
-        - name: garden-center-service-server
+        - name: garden-center-service
           image: goetsie/garden_center-service
           imagePullPolicy: IfNotPresent
           ports:

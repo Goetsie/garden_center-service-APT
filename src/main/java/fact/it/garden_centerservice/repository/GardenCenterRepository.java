@@ -11,6 +11,7 @@ import java.util.List;
 public interface GardenCenterRepository extends MongoRepository<GardenCenter, String> {
     GardenCenter findGardenCenterByName(String name);
     List<GardenCenter> getAllBy();
-    List<GardenCenter> findAllByAdresLike(String adres);
+    List<GardenCenter> findAllByAddressLike(String address);
+    List<GardenCenter> findAllByCityLike(String city);
     List<GardenCenter> findAllByNameLike(String name);
 }

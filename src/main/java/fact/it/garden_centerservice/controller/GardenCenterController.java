@@ -20,14 +20,24 @@ public class GardenCenterController {
     @PostConstruct
     public void fillDB(){
         if(gardenCenterRepository.count()==0){
-            gardenCenterRepository.save(new GardenCenter("Tuincentrum Geel","Geelstraat 2, Geel"));
-            gardenCenterRepository.save(new GardenCenter("Plantenhuis","Plantstraat 16, Aarschot"));
-            gardenCenterRepository.save(new GardenCenter( "TuinMagazijn","Tuinstraat 34, Brussel"));
+            gardenCenterRepository.save(new GardenCenter(1,"Tuincentrum Geel","Geelstraat 2, Geel"));
+            gardenCenterRepository.save(new GardenCenter(2, "Plantenhuis","Plantstraat 16, Aarschot"));
+            gardenCenterRepository.save(new GardenCenter( 3, "TuinMagazijn","Tuinstraat 34, Brussel"));
+            gardenCenterRepository.save(new GardenCenter( 3, "GreenGarden","groenstraat 34, Geel"));
         }
-        //System.out.println("Reviews test: " + gardenCenterRepository.getAllBy());
     }
-    @GetMapping("/reviews/user/{address}")
-    public List<GardenCenter> getGardenCentersByLocation(@PathVariable String address){
-        return gardenCenterRepository.findAllByAdresLike(address);
+    @GetMapping("/gardencenters/location/address/{address}")
+    public List<GardenCenter> getGardenCentersByAddress(@PathVariable String address){
+        return gardenCenterRepository.findAllByAddressLike(address);
+    }
+
+    @GetMapping("/gardencenters/city/{city}")
+    public List<GardenCenter> getGardenCentersByCity(@PathVariable String city){
+        return gardenCenterRepository.findAllByAddressLike(city);
+    }
+
+    @GetMapping("/gardencenters/{name}")
+    public List<GardenCenter> getGardenCentersByName(@PathVariable String name){
+        return gardenCenterRepository.findAllByNameLike(name);
     }
 }

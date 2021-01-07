@@ -8,15 +8,18 @@ public class GardenCenter {
 
     @Id
     private String id;
+    private int gardenCenterId;
     private String name;
-    private String adres;
+    private String City;
+    private String address;
 
     public GardenCenter() {
     }
 
-    public GardenCenter(String name, String adres) {
+    public GardenCenter( int gardenCenterId, String name, String address) {
+        this.gardenCenterId = gardenCenterId;
         this.name = name;
-        this.adres = adres;
+        this.address = address;
     }
 
     public String getId() {
@@ -27,6 +30,14 @@ public class GardenCenter {
         this.id = id;
     }
 
+    public int getGardenCenterId() {
+        return gardenCenterId;
+    }
+
+    public void setGardenCenterId(int gardenCenterId) {
+        this.gardenCenterId = gardenCenterId;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,11 +46,19 @@ public class GardenCenter {
         this.name = name;
     }
 
-    public String getAdres() {
-        return adres;
+    public String getCity() {
+        return City;
     }
 
-    public void setAdres(String adres) {
-        this.adres = adres;
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
