@@ -20,12 +20,18 @@ public class GardenCenterController {
     @PostConstruct
     public void fillDB(){
         if(gardenCenterRepository.count()==0){
-            gardenCenterRepository.save(new GardenCenter(1,"Tuincentrum Geel","Geelstraat 2, Geel"));
-            gardenCenterRepository.save(new GardenCenter(2, "Plantenhuis","Plantstraat 16, Aarschot"));
-            gardenCenterRepository.save(new GardenCenter( 3, "TuinMagazijn","Tuinstraat 34, Brussel"));
-            gardenCenterRepository.save(new GardenCenter( 3, "GreenGarden","groenstraat 34, Geel"));
+            gardenCenterRepository.save(new GardenCenter(1,"Tuincentrum Geel","Geel","Geelstraat 2"));
+            gardenCenterRepository.save(new GardenCenter(2, "Plantenhuis","Aarschot" ,"Plantstraat 16"));
+            gardenCenterRepository.save(new GardenCenter( 3, "TuinMagazijn","Brussel", "Tuinstraat 34"));
+            gardenCenterRepository.save(new GardenCenter( 3, "GreenGarden", "Geel","Groenstraat 34"));
         }
     }
+
+    @GetMapping("/gardencenters")
+    public List<GardenCenter> getPlants() {
+        return gardenCenterRepository.findAll();
+    }
+
     @GetMapping("/gardencenters/location/address/{address}")
     public List<GardenCenter> getGardenCentersByAddress(@PathVariable String address){
         return gardenCenterRepository.findAllByAddressLike(address);

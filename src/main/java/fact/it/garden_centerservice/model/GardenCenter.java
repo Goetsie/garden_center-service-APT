@@ -1,24 +1,27 @@
 package fact.it.garden_centerservice.model;
 
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Document(collection = "GardenCenters")
 public class GardenCenter {
 
     @Id
     private String id;
+    @Indexed(unique = true)
     private int gardenCenterId;
     private String name;
-    private String City;
+    private String city;
     private String address;
 
     public GardenCenter() {
     }
 
-    public GardenCenter( int gardenCenterId, String name, String address) {
+    public GardenCenter(int gardenCenterId, String name, String city, String address) {
         this.gardenCenterId = gardenCenterId;
         this.name = name;
+        this.city = city;
         this.address = address;
     }
 
@@ -47,11 +50,11 @@ public class GardenCenter {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        city = city;
     }
 
     public String getAddress() {
