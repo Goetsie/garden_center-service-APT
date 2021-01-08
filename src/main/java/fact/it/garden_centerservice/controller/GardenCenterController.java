@@ -48,6 +48,6 @@ public class GardenCenterController {
     }
     @GetMapping("/gardencenters/{id}")
     public GardenCenter getGardenCenterById(@PathVariable int id){
-        return gardenCenterRepository.getGardenCenterById(id);
+        return gardenCenterRepository.getGardenCenterByGardenCenterId(id);
     }
 }
