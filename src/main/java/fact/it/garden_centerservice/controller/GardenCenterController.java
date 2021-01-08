@@ -23,7 +23,7 @@ public class GardenCenterController {
             gardenCenterRepository.save(new GardenCenter(1,"Tuincentrum Geel","Geel","Geelstraat 2"));
             gardenCenterRepository.save(new GardenCenter(2, "Plantenhuis","Aarschot" ,"Plantstraat 16"));
             gardenCenterRepository.save(new GardenCenter( 3, "TuinMagazijn","Brussel", "Tuinstraat 34"));
-            gardenCenterRepository.save(new GardenCenter( 3, "GreenGarden", "Geel","Groenstraat 34"));
+            gardenCenterRepository.save(new GardenCenter( 4, "GreenGarden", "Geel","Groenstraat 34"));
         }
     }
 
@@ -42,8 +42,12 @@ public class GardenCenterController {
         return gardenCenterRepository.findAllByAddressLike(city);
     }
 
-    @GetMapping("/gardencenters/{name}")
+    @GetMapping("/gardencenters/name/{name}")
     public List<GardenCenter> getGardenCentersByName(@PathVariable String name){
         return gardenCenterRepository.findAllByNameLike(name);
+    }
+    @GetMapping("/gardencenters/{id}")
+    public GardenCenter getGardenCenterById(@PathVariable int id){
+        return gardenCenterRepository.getGardenCenterById(id);
     }
 }
