@@ -9,9 +9,7 @@ import java.util.List;
 
 @Repository
 public interface GardenCenterRepository extends MongoRepository<GardenCenter, String> {
-    GardenCenter findGardenCenterByName(String name);
     GardenCenter getGardenCenterByGardenCenterId(int id);
-    List<GardenCenter> getAllBy();
     List<GardenCenter> findAllByAddressLike(String address);
     List<GardenCenter> findAllByCityLike(String city);
     List<GardenCenter> findAllByNameLike(String name);

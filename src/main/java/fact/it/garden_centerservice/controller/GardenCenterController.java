@@ -28,18 +28,18 @@ public class GardenCenterController {
     }
 
     @GetMapping("/gardencenters")
-    public List<GardenCenter> getPlants() {
+    public List<GardenCenter> getGardenCenters() {
         return gardenCenterRepository.findAll();
     }
 
-    @GetMapping("/gardencenters/location/address/{address}")
+    @GetMapping("/gardencenters/address/{address}")
     public List<GardenCenter> getGardenCentersByAddress(@PathVariable String address){
         return gardenCenterRepository.findAllByAddressLike(address);
     }
 
     @GetMapping("/gardencenters/city/{city}")
     public List<GardenCenter> getGardenCentersByCity(@PathVariable String city){
-        return gardenCenterRepository.findAllByAddressLike(city);
+        return gardenCenterRepository.findAllByCityLike(city);
     }
 
     @GetMapping("/gardencenters/name/{name}")

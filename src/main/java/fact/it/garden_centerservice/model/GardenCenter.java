@@ -15,23 +15,16 @@ public class GardenCenter {
     private String city;
     private String address;
 
-    public GardenCenter() {
-    }
+//    public GardenCenter() {
+//    }
 
     public GardenCenter(int gardenCenterId, String name, String city, String address) {
-        this.gardenCenterId = gardenCenterId;
-        this.name = name;
-        this.city = city;
-        this.address = address;
+        setGardenCenterId(gardenCenterId);
+        setName(name);
+        setCity(city);
+        setAddress(address);
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public int getGardenCenterId() {
         return gardenCenterId;
@@ -54,7 +47,7 @@ public class GardenCenter {
     }
 
     public void setCity(String city) {
-        city = city;
+        this.city = city;
     }
 
     public String getAddress() {
